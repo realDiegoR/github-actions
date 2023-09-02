@@ -6,7 +6,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
         - name: Execute command
-          if: ${{ github.actor == 'realDiegoR' && $SEC_CODE == 123 }}
+          if: ${{ github.actor == 'realDiegoR' && env.SEC_CODE == 123 }}
           run: node index.js && echo $SUCCESS_MESSAGE
           env:
             SEC_CODE: ${{ 123 }}
