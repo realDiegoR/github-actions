@@ -1,0 +1,22 @@
+name: Writing expressions in GitHub Actions
+run-name: I am writing expressions
+on: push
+jobs:
+  using-expressions:
+   runs-on: ubuntu-latest
+   steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - name: Setup Node
+          uses: actions/setup-node@v3
+          with:
+            node-versoin: 18
+        - name: Set variable
+          run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+        - name: Execute command
+          if: ${{ github.actor == 'realDiegoR' && env.SEC_CODE == 123 }}
+          run: node index.js && echo $SUCCESS_MESSAGE
+          env:
+            SEC_CODE: ${{ 123 }}
+            SUCCESS_MESSAGE: Congrats! It did not fail
+    
