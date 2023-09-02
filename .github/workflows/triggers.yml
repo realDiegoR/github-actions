@@ -1,0 +1,17 @@
+name: Creando eventos en GitHub Actions
+run-name: Eventos aleatorios del segundo reto
+on:
+  push:
+    branches:
+      - main
+      - releases/**
+  pull_request:
+    types:
+      - opened
+      - edited
+  fork:
+  issues:
+    types:
+      - pinned
+      - labeled
+      - assigned
