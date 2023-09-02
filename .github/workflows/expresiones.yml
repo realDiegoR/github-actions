@@ -1,0 +1,14 @@
+name: Writing expressions in GitHub Actions
+run-name: I am writing expressions
+on: push
+jobs:
+  using-expressions:
+   runs-on: ubuntu-latest
+   steps:
+        - name: Execute command
+          if: ${{ github.actor == realDiegoR && SEC_CODE == 123 }}
+          run: node index.js && echo $SUCCESS_MESSAGE
+          env:
+            SEC_CODE: ${{ 123 }}
+            SUCCESS_MESSAGE: Congrats! It did not fail
+    
