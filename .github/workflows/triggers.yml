@@ -15,3 +15,17 @@ on:
       - pinned
       - labeled
       - assigned
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      -  name: Checkout
+         uses: actions/checkout@v3
+      -  name: Setup Node
+         uses: actions/setup-node@v3
+         with:
+          node-versoin: 18
+      -  name: Set variable
+         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      -  name: Run script
+         run: node index.js
